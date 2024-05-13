@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>迷路</title>
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet" />
+  <link rel="stylesheet" href="css/meiro.css">
+</head>
+
+<body id="meiro">
+  <main id="meiro" style="position: relative;">
+    <!-- <div id="box"></div> -->
+    <img id="box" src="images/迷路.png" alt="">
+    <div id="container">
+      <img id="hito" src="images/人.jpeg" alt="">
+    </div>
+
+    <div id="popup" style="display: none;">
+      <textarea id="kekka" dtyle="display: none;">右矢印キーが押されました</textarea>
+      <button id="OKButton">OK</button>
+    </div>
+
+
+  </main>
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+
+//人をドラッグして動かす
+  hito.onpointermove = function (event) {
+    if (event.buttons) {
+      this.style.left = this.offsetLeft + event.movementX + 'px'
+      this.style.top = this.offsetTop + event.movementY + 'px'
+      this.style.position = 'absolute'
+      this.draggable = false
+      this.setPointerCapture(event.pointerId)
+    }
+  }
+
+
+//キーボードで動かす
+  $(function () {
+    $('html').keydown(function (e) {
+      switch (e.which) {
+        case 39: // Key[→]
+          $('#container img').animate({ left: '+=10px' }, 100);
+          break;
+
+        case 37: // Key[←]
+          $('#container img').animate({ left: '-=10px' }, 100);
+          break;
+
+        case 38: // Key[↑]
+          $('#container img').animate({ top: '-=10px' }, 100);
+          break;
+
+        case 40: // Key[↓]
+          $('#container img').animate({ top: '+=10px' }, 100);
+          break;
+
+      }
+    });
+  });
+
+
+  //→が押されたらイベント
+  $(function () {
+    $(document).keydown(function (e) {
+
+      const min = 0;
+      const max = 50;
+      const randomNumber2 = Math.floor(Math.random() * (max - min + 1)) + min;
+      console.log(randomNumber2);
+
+      if (e.which === 39) { //右
+        if (randomNumber2 >= 0 && randomNumber2 <= 1) { 
+          $("#kekka").text('5000円を拾った');
+          $('#popup').show(); // ポップアップを表示
+          }
+        if (randomNumber2 >= 2 && randomNumber2 <= 3) {
+          $("#kekka").text('10000円を拾った');
+          $('#popup').show(); // ポップアップを表示
+        }
+        }
+      });
+
+      // エンターキーが押されたときにOKボタンのクリックイベントを手動で呼び出す
+      $(document).keydown(function (e) {
+        if (e.which === 13) { // エンターキーが押された場合
+          $('#OKButton').click(); // OKボタンのクリックイベントを手動で呼び出す
+        }
+      });
+
+      // PKボタンがクリックされたときにポップアップを非表示にする
+      $('#OKButton').click(function () {
+        $('#popup').hide();
+      });
+    
+  });
+
+
+  $(function () {
+    $(document).keydown(function (e) {
+
+      const min = 0;
+      const max = 100;
+      const randomNumber2 = Math.floor(Math.random() * (max - min + 1)) + min;
+      console.log(randomNumber2);
+
+      if (e.which === 40) { //下
+        if (randomNumber2 >= 0 && randomNumber2 <= 1) { 
+          $("#kekka").text('ネコを拾った');
+          $('#popup').show(); // ポップアップを表示
+          }
+        if (randomNumber2 >= 2 && randomNumber2 <= 3) {
+          $("#kekka").text('ネコが逃げた');
+          $('#popup').show(); // ポップアップを表示
+        }
+        }
+      });
+
+    // エンターキーが押されたときにOKボタンのクリックイベントを手動で呼び出す
+    $(document).keydown(function (e) {
+      if (e.which === 13) { // エンターキーが押された場合
+        $('#OKButton').click(); // OKボタンのクリックイベントを手動で呼び出す
+      }
+    });
+
+    // PKボタンがクリックされたときにポップアップを非表示にする
+    $('#OKButton').click(function () {
+      $('#popup').hide();
+    });
+   
+  });
+
+
+
+    $(function () {
+      $(document).keydown(function (e) {
+
+        const min = 0;
+        const max = 100;
+        const randomNumber2 = Math.floor(Math.random() * (max - min + 1)) + min;
+        console.log(randomNumber2);
+
+        if (e.which === 38) { //上
+          if (randomNumber2 >= 0 && randomNumber2 <= 1) {
+            $("#kekka").text('ネコが逃げた');
+            $('#popup').show(); // ポップアップを表示
+          }
+          if (randomNumber2 >= 2 && randomNumber2 <= 3) {
+            $("#kekka").text('3000万円を拾った');
+            $('#popup').show(); // ポップアップを表示
+          }
+        }
+      });
+
+      // エンターキーが押されたときにOKボタンのクリックイベントを手動で呼び出す
+      $(document).keydown(function (e) {
+        if (e.which === 13) { // エンターキーが押された場合
+          $('#OKButton').click(); // OKボタンのクリックイベントを手動で呼び出す
+        }
+      });
+
+      // PKボタンがクリックされたときにポップアップを非表示にする
+      $('#OKButton').click(function () {
+        $('#popup').hide();
+      });
+
+    });
+  
+
+
+
+</script>
+
+
+</html>
