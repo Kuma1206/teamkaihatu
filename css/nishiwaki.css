@@ -1,0 +1,41 @@
+
+.main-box{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+.dq-window-1 {
+    background-color: black;
+    margin-top: 20px;
+    padding: 0.15rem;
+    width: fit-content;
+}
+
+.dq-window-2 {
+    background-color: white;
+    padding: 0.2rem;
+    border-radius: 0.3rem;
+    width: fit-content;
+}
+
+.dq-window-3 {
+    color: white;
+    background-color: black;
+    font-family: "misaki_gothic_2nd";
+    border-radius: 0.3rem;
+    padding: 1.0rem 0.75rem;
+    line-height: 2;
+    width: fit-content;
+}
+.press-start-2p-regular {
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.Tresure-Chest{
+    margin-top: 5em;
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+}
