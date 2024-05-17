@@ -8,7 +8,7 @@
 
 ## ③DEMO
 
-デプロイしている場合はURLを記入（任意）
+https://kuma1206.github.io/teamkaihatu/
 
 ## ④作ったアプリケーション用のIDまたはPasswordがある場合
 
