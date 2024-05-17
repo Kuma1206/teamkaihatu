@@ -17,16 +17,11 @@
       <img id="hito" src="images/人.jpeg" alt="">
     </div>
 
-    <div id="popup" class="modal" style="display: none;">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <iframe id="popup-iframe" src="" frameborder="0"></iframe>
-        <div id="kekka" style="display: none;"></div>
-        <button id="OKButton">OK</button>
-      </div>
+    <div id="popup" style="display: none;">
+      <textarea id="kekka" dtyle="display: none;"></textarea>
+      <button id="OKButton">OK</button>
     </div>
 
-    <a href="http://127.0.0.1:5501/top.html"><button class="back">Back</button></a>
 
   </main>
 
@@ -72,44 +67,25 @@
   });
 
 
-  // ポップアップ表示処理
-  function showPopup(message, iframeSrc) {
-    if (iframeSrc) {
-      $("#popup-iframe").attr("src", iframeSrc).show();
-      $("#kekka").hide();
-    } else {
-      $("#kekka").text(message).show();
-      $("#popup-iframe").hide();
-    }
-    $('#popup').show();
-  }
-
-  // ポップアップを閉じる処理
-  function hidePopup() {
-    $('#popup').hide();
-    $("#popup-iframe").attr("src", "");
-    $("#kekka").hide();
-  }
-
-
   //→が押されたらイベント
   $(function () {
     $(document).keydown(function (e) {
 
       const min = 0;
-      const max = 70;
+      const max = 50;
       const randomNumber2 = Math.floor(Math.random() * (max - min + 1)) + min;
       console.log(randomNumber2);
 
       if (e.which === 39) { //右
-        if (randomNumber2 >= 0 && randomNumber2 <= 1) {
-          showPopup(null, "nishiwaki.html");
+        if (randomNumber2 >= 0 && randomNumber2 <= 1) { 
+          $("#kekka").text('5000円を拾った');
+          $('#popup').show(); // ポップアップを表示
           }
-        if (randomNumber2 >= 5 && randomNumber2 <= 6) {
-          showPopup(null, "popup_sagi.html");
+        if (randomNumber2 >= 2 && randomNumber2 <= 3) {
+          $("#kekka").text('10000円を拾った');
+          $('#popup').show(); // ポップアップを表示
         }
         }
-
       });
 
       // エンターキーが押されたときにOKボタンのクリックイベントを手動で呼び出す
@@ -136,11 +112,16 @@
       console.log(randomNumber2);
 
       if (e.which === 40) { //下
-        if (randomNumber2 >= 0 && randomNumber2 <= 1) {
-          showPopup(null, "popup.html");
+        if (randomNumber2 >= 0 && randomNumber2 <= 1) { 
+          $("#kekka").text('ネコを拾った');
+          $('#popup').show(); // ポップアップを表示
+          }
+        if (randomNumber2 >= 2 && randomNumber2 <= 3) {
+          $("#kekka").text('ネコが逃げた');
+          $('#popup').show(); // ポップアップを表示
         }
-      }
-    });
+        }
+      });
 
     // エンターキーが押されたときにOKボタンのクリックイベントを手動で呼び出す
     $(document).keydown(function (e) {
@@ -166,9 +147,14 @@
         const randomNumber2 = Math.floor(Math.random() * (max - min + 1)) + min;
         console.log(randomNumber2);
 
-        if (e.which === 37) { //上
-          if (randomNumber2 >= 3 && randomNumber2 <= 5) {
-            showPopup(null, "popup_car.html");
+        if (e.which === 38) { //上
+          if (randomNumber2 >= 0 && randomNumber2 <= 1) {
+            $("#kekka").text('ネコが逃げた');
+            $('#popup').show(); // ポップアップを表示
+          }
+          if (randomNumber2 >= 2 && randomNumber2 <= 3) {
+            $("#kekka").text('3000万円を拾った');
+            $('#popup').show(); // ポップアップを表示
           }
         }
       });

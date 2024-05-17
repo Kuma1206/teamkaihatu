@@ -1,0 +1,21 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+button {
+    width: 300px;
+    height: 100px;
+    margin: 20px;
+    font-size: xx-large;
+    border-radius: 10px;
+    background-color: aqua;
+}
+
+button:hover {
+    background-color: rgb(42, 153, 153);
+    color: rgb(232, 233, 235);
+}
