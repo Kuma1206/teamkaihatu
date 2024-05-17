@@ -1,3 +1,21 @@
+<<<<<<< HEAD
+=======
+.back {
+    display: flex;
+    justify-content: end;
+    width: 80%;
+}
+
+button {
+    height: 30px;
+        width: 50px;
+        margin: 5px;
+        background-color: black;
+        color: #fefefe;
+        border-radius: 5px;
+}
+
+>>>>>>> origin
 .quiz {
     margin: 10px 250px 10px;
     padding: 100px 0;
