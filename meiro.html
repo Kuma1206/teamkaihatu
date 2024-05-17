@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>迷路</title>
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet" />
+  <link rel="stylesheet" href="css/meiro.css">
+</head>
+
+<body id="meiro">
+  <main id="meiro" style="position: relative;">
+    <!-- <div id="box"></div> -->
+    <img id="box" src="images/迷路.png" alt="">
+    <div id="container">
+      <img id="hito" src="images/人.jpeg" alt="">
+    </div>
+
+    <div id="popup" class="modal" style="display: none;">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <iframe id="popup-iframe" src="" frameborder="0"></iframe>
+        <div id="kekka" style="display: none;"></div>
+        <button id="OKButton">OK</button>
+      </div>
+    </div>
+
+    <a href="http://127.0.0.1:5501/index.html"><button class="back">Back</button></a>
+
+  </main>
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+
+//人をドラッグして動かす
+  hito.onpointermove = function (event) {
+    if (event.buttons) {
+      this.style.left = this.offsetLeft + event.movementX + 'px'
+      this.style.top = this.offsetTop + event.movementY + 'px'
+      this.style.position = 'absolute'
+      this.draggable = false
+      this.setPointerCapture(event.pointerId)
+    }
+  }
+
+
+//キーボードで動かす
+  $(function () {
+    $('html').keydown(function (e) {
+      switch (e.which) {
+        case 39: // Key[→]
+          $('#container img').animate({ left: '+=10px' }, 100);
+          break;
+
+        case 37: // Key[←]
+          $('#container img').animate({ left: '-=10px' }, 100);
+          break;
+
+        case 38: // Key[↑]
+          $('#container img').animate({ top: '-=10px' }, 100);
+          break;
+
+        case 40: // Key[↓]
+          $('#container img').animate({ top: '+=10px' }, 100);
+          break;
+
+      }
+    });
+  });
+
+
+  // ポップアップ表示処理
+  function showPopup(message, iframeSrc) {
+    if (iframeSrc) {
+      $("#popup-iframe").attr("src", iframeSrc).show();
+      $("#kekka").hide();
+    } else {
+      $("#kekka").text(message).show();
+      $("#popup-iframe").hide();
+    }
+    $('#popup').show();
+  }
+
+  // ポップアップを閉じる処理
+  function hidePopup() {
+    $('#popup').hide();
+    $("#popup-iframe").attr("src", "");
+    $("#kekka").hide();
+  }
+
+
+  //→が押されたらイベント
+  $(function () {
+    $(document).keydown(function (e) {
+
+      const min = 0;
+      const max = 70;
+      const randomNumber2 = Math.floor(Math.random() * (max - min + 1)) + min;
+      console.log(randomNumber2);
+
+      if (e.which === 39) { //右
+        if (randomNumber2 >= 0 && randomNumber2 <= 1) {
+          showPopup(null, "nishiwaki.html");
+          }
+        if (randomNumber2 >= 5 && randomNumber2 <= 6) {
+          showPopup(null, "popup_sagi.html");
+        }
+        }
+
+      });
+
+      // エンターキーが押されたときにOKボタンのクリックイベントを手動で呼び出す
+      $(document).keydown(function (e) {
+        if (e.which === 13) { // エンターキーが押された場合
+          $('#OKButton').click(); // OKボタンのクリックイベントを手動で呼び出す
+        }
+      });
+
+      // PKボタンがクリックされたときにポップアップを非表示にする
+      $('#OKButton').click(function () {
+        $('#popup').hide();
+      });
+    
+  });
+
+
+  $(function () {
+    $(document).keydown(function (e) {
+
+      const min = 0;
+      const max = 100;
+      const randomNumber2 = Math.floor(Math.random() * (max - min + 1)) + min;
+      console.log(randomNumber2);
+
+      if (e.which === 40) { //下
+        if (randomNumber2 >= 0 && randomNumber2 <= 1) {
+          showPopup(null, "popup.html");
+        }
+      }
+    });
+
+    // エンターキーが押されたときにOKボタンのクリックイベントを手動で呼び出す
+    $(document).keydown(function (e) {
+      if (e.which === 13) { // エンターキーが押された場合
+        $('#OKButton').click(); // OKボタンのクリックイベントを手動で呼び出す
+      }
+    });
+
+    // PKボタンがクリックされたときにポップアップを非表示にする
+    $('#OKButton').click(function () {
+      $('#popup').hide();
+    });
+   
+  });
+
+
+
+    $(function () {
+      $(document).keydown(function (e) {
+
+        const min = 0;
+        const max = 100;
+        const randomNumber2 = Math.floor(Math.random() * (max - min + 1)) + min;
+        console.log(randomNumber2);
+
+        if (e.which === 37) { //上
+          if (randomNumber2 >= 3 && randomNumber2 <= 5) {
+            showPopup(null, "popup_car.html");
+          }
+        }
+      });
+
+      // エンターキーが押されたときにOKボタンのクリックイベントを手動で呼び出す
+      $(document).keydown(function (e) {
+        if (e.which === 13) { // エンターキーが押された場合
+          $('#OKButton').click(); // OKボタンのクリックイベントを手動で呼び出す
+        }
+      });
+
+      // PKボタンがクリックされたときにポップアップを非表示にする
+      $('#OKButton').click(function () {
+        $('#popup').hide();
+      });
+
+    });
+  
+
+
+
+</script>
+
+
+</html>

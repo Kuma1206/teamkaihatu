@@ -1,0 +1,59 @@
+
+.main-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    /* ビューポート全体の高さ */
+}
+
+.dq-window-1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    padding: 20px;
+    border: 2px solid white;
+    text-align: center;
+    height: auto;
+    /* 高さを自動に */
+    min-height: 105px;
+    /* 必要に応じて最小高さを設定 */
+    width: 80%;
+    /* 必要に応じて幅を設定 */
+}
+
+.dq-window-2 {
+    background-color: white;
+    padding: 0.2rem;
+    border-radius: 0.3rem;
+    width: fit-content;
+}
+
+.dq-window-3 {
+    color: white;
+    background-color: black;
+    font-family: "misaki_gothic_2nd";
+    border-radius: 0.3rem;
+    padding: 1.0rem 0.75rem;
+    line-height: 2;
+    width: fit-content;
+}
+.press-start-2p-regular {
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.Tresure-Chest{
+    margin-top: 0;
+    padding-top: 0px;
+    display: flex;
+    justify-content: center;
+}
+
+.Tresure-Chest img {
+    max-width: 100%;
+    height: auto;
+}
